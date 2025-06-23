@@ -20,8 +20,9 @@ $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 if (curl_errno($ch)) {
     echo "CURL error: " . curl_error($ch);
 } else {
-    echo "HTTP status: $httpCode<br><br>";
-    echo "<pre>" . htmlspecialchars($response) . "</pre>";
+    header('Content-Type: application/json');
+    echo $response;
 }
+
 curl_close($ch);
 ?>
